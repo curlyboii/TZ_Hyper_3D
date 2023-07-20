@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4291108440325839969}
   - component: {fileID: 2898017053917885584}
   - component: {fileID: 5506861752319790966}
+  - component: {fileID: 5233066416590578265}
+  - component: {fileID: 3717740653694079945}
   m_Layer: 0
   m_Name: Banana
   m_TagString: Untagged
@@ -84,3 +86,33 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &5233066416590578265
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873785573385182363}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &3717740653694079945
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873785573385182363}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.023849033
+  m_Height: 0.04932064
+  m_Direction: 0
+  m_Center: {x: -0.007339736, y: 2.6280117e-13, z: 0.017135337}
