@@ -24,7 +24,7 @@ public class FruitSpawner : MonoBehaviour
         while (true)
         {
             var wanted = Random.Range(minTras, maxTras);
-            var position = new Vector3(wanted, transform.position.y, transform.position.z);
+            var position = new Vector3(transform.position.x, transform.position.y, wanted);
             GameObject newFruit = Instantiate(fruitPrefab[Random.Range(0, fruitPrefab.Length)], position, Quaternion.identity);
 
 
