@@ -11,10 +11,28 @@ public class MoveObjects : MonoBehaviour
     private Rigidbody rb;
     private bool wasKinematic;
 
+    // Reference to the FruitCollection script
+    private FruitCollection fruitCollection;
+
+    // Dictionary to map fruit tags to FruitType enum values
+    private Dictionary<string, FruitType> fruitTagToType;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         initialHeight = transform.position.y;
+
+        // Find the FruitCollection script in the scene
+        fruitCollection = FindObjectOfType<FruitCollection>();
+
+        // Initialize the fruit tag to FruitType mapping
+        fruitTagToType = new Dictionary<string, FruitType>
+        {
+            { "Apple", FruitType.Apple },
+            { "Banana", FruitType.Banana },
+            { "Grapes", FruitType.Grapes }
+            // Add more fruit tags and their corresponding FruitType enum values as needed
+        };
     }
 
     void OnMouseDown()
@@ -33,6 +51,19 @@ public class MoveObjects : MonoBehaviour
 
         // Re-enable physics when dragging is done
         rb.isKinematic = wasKinematic;
+
+        // Check if the object is dropped inside the basket and collect the fruit
+        //if (IsInsideBasket())
+        //{
+        //    string fruitTag = gameObject.tag; // Get the tag of the fruit GameObject
+
+        //    // Convert the fruit tag to FruitType enum value using the dictionary
+        //    if (fruitTagToType.TryGetValue(fruitTag, out FruitType fruitType))
+        //    {
+        //        fruitCollection.OnFruitCollected(fruitType); // Pass the FruitType to the FruitCollection script
+        //        Destroy(gameObject); // Destroy the fruit object after it is collected
+        //    }
+        //}
     }
 
     void Update()
@@ -61,4 +92,3 @@ public class MoveObjects : MonoBehaviour
         return ray.GetPoint(distance);
     }
 }
-

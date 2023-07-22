@@ -45,7 +45,7 @@ public class FruitCollection : MonoBehaviour
     private void SetRandomTask()
     {
         System.Random random = new System.Random();
-        currentTaskFruit = (FruitType)random.Next(0, 3); // 0: Apple, 1: Banana, 2: Grapes
+        currentTaskFruit = (FruitType)random.Next(1, 3); // 0: Apple, 1: Banana, 2: Grapes
         fruitsToCollect = random.Next(1, 6); // Random number of fruits to collect from 1 to 5
     }
 
@@ -59,6 +59,7 @@ public class FruitCollection : MonoBehaviour
 
 public enum FruitType
 {
+    None,
     Apple,
     Banana,
     Grapes
