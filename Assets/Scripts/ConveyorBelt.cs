@@ -16,9 +16,6 @@ public class ConveyorBelt : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /* Create an instance of this texture
-         * This should only be necessary if the belts are using the same material and are moving different speeds
-         */
         material = GetComponent<MeshRenderer>().material;
     }
 
