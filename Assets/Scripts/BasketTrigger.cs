@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BasketTrigger : MonoBehaviour
 {
     // Reference to the FruitCollection script
     private FruitCollection fruitCollection;
+    [SerializeField] GameObject spawnEffectPrefab; // Particle System Prefab
+
+
 
     void Start()
     {
@@ -23,8 +27,13 @@ public class BasketTrigger : MonoBehaviour
             if (fruitType != FruitType.None)
             {
                 fruitCollection.OnFruitCollected(fruitType); // Pass the FruitType to the FruitCollection script
+                if (spawnEffectPrefab != null)
+                {
+                    Instantiate(spawnEffectPrefab, transform.position, Quaternion.identity);
+                }
 
-                Destroy(other.gameObject); // Destroy the fruit object after it is collected
+
+                // Destroy(other.gameObject); // Destroy the fruit object after it is collected
             }
         }
     }
