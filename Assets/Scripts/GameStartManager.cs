@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Unity.VisualScripting;
 
 public class GameStartManager : MonoBehaviour
 {
@@ -126,7 +127,8 @@ public class GameStartManager : MonoBehaviour
     // Update the timer text
     private void UpdateTimerText()
     {
-        float clampedTimer = Mathf.Clamp(timer, 0f, Mathf.Infinity);
+        float minimum = 0f;
+        float clampedTimer = Mathf.Clamp(timer, minimum, Mathf.Infinity);
 
         int minutes = Mathf.FloorToInt(clampedTimer / 60f);
         int seconds = Mathf.FloorToInt(clampedTimer % 60f);
