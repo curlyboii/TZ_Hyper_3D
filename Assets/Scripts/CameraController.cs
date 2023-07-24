@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    private const int ZERO_ON_Z_AXIS = 0;
+
+
     public Transform player; // Reference to the player's transform
     public float moveSpeed = 5f; // Speed of the camera movement towards the player
     public float rotationSpeed = 5f; // Speed of the camera rotation
@@ -37,7 +40,7 @@ public class CameraController : MonoBehaviour
     // Coroutine to smoothly move the camera to the target position
     private IEnumerator MoveCamera(Vector3 targetPosition)
     {
-        Quaternion targetRotation = Quaternion.Euler(xRotationAngle, transform.eulerAngles.y, 0f);
+        Quaternion targetRotation = Quaternion.Euler(xRotationAngle, transform.eulerAngles.y, ZERO_ON_Z_AXIS);
 
         while (Vector3.Distance(transform.position, targetPosition) > 0.1f || Quaternion.Angle(transform.rotation, targetRotation) > 0.1f)
         {

@@ -6,6 +6,10 @@ using TMPro;
 
 public class GameStartManager : MonoBehaviour
 {
+    private const float ZERO_TIMER  = 0f;
+    private const int LEVEL = 0;
+    private const int DELAY_TIME_TO_RESTART = 1;
+
     public static GameStartManager instance; // access the GameManager from anywhere
     public GameObject gameOverPanel; // game over
     public GameObject tapToStartPanel; // tap to move panel
@@ -52,11 +56,11 @@ public class GameStartManager : MonoBehaviour
             if (!isTaskCompleted)
             {
                 // Update the timer after the game has started
-                if (timer > 0f)
+                if (timer > ZERO_TIMER)
                 {
                     timer -= Time.deltaTime;
                     UpdateTimerText();
-                    if (timer <= 0f)
+                    if (timer <= ZERO_TIMER)
                     {
                         // Timer has reached 0, handle level failure here
                         fruitCollection.LevelFailed();
@@ -78,7 +82,7 @@ public class GameStartManager : MonoBehaviour
 
     public void GameOver()
     {
-        Invoke("DelayRestart", 1f);
+        Invoke("DelayRestart", DELAY_TIME_TO_RESTART);
     }
 
     void DelayRestart()
@@ -97,7 +101,7 @@ public class GameStartManager : MonoBehaviour
 
     public void RestartButton()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(LEVEL);
     }
 
     // Method to start the timer
@@ -127,8 +131,9 @@ public class GameStartManager : MonoBehaviour
         int minutes = Mathf.FloorToInt(clampedTimer / 60f);
         int seconds = Mathf.FloorToInt(clampedTimer % 60f);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        int timeToColoredRed = 10;
 
-        if (timer <= 10f)
+        if (timer <= timeToColoredRed)
         {
             timerText.color = Color.red;
         }

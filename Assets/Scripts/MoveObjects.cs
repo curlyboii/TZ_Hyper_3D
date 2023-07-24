@@ -7,7 +7,7 @@ public class MoveObjects : MonoBehaviour
     private bool isDragging = false;
     private Vector3 offset;
     private float initialHeight;
-    private float maxHeight = 5f; // You can adjust this maximum height as needed
+    private float maxHeight = 5f; // You can adjust this maximum height as needed 
     private Rigidbody rb;
     private bool wasKinematic;
 
